@@ -12,7 +12,18 @@ module.exports = async (message) => {
 
         const author = message.author;
 
-        const embed = createEmbed(url, title, price, freight ,image, author);
+        let emoji;
+        if (url.includes('taobao.com')) {
+            emoji = '<:taobao:1271782520916148316>';
+        } else if (url.includes('weidian.com')) {
+            emoji = '<:weidian:1271782497163804837>';
+        } else if (url.includes('1688.com')) {
+            emoji = '<:1688:1271782513919918091>';
+        } else {
+            emoji = '';
+        }
+
+        const embed = createEmbed(url, title, price, freight, image, author, emoji);
         message.reply({ embeds: [embed] });
     }
 };
