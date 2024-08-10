@@ -8,9 +8,11 @@ module.exports = async (message) => {
     const match = message.content.match(urlRegex);
     if (match) {
         const url = match[0];
-        const { title, price } = await getPageData(url);
+        const { title, price, freight, image } = await getPageData(url);
 
-        const embed = createEmbed(url, title, price);
+        const author = message.author;
+
+        const embed = createEmbed(url, title, price, freight ,image, author);
         message.reply({ embeds: [embed] });
     }
 };

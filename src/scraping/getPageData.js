@@ -25,22 +25,23 @@ const getPageData = async (url) => {
 
         await page.waitForFunction(
             () => document.querySelector('.py-0') !== null,
-            { timeout: 30000 } // Ajusta el timeout si es necesario
+            { timeout: 30000 }
         );
 
         const content = await page.content();
         const $ = cheerio.load(content);
 
-
-        let title = '', price = '';
-
         const titleSelector = '#check_titel';
-        const priceSelector = 'span.text-orange.me-3.fw-bold.fs-3';
+        const priceSelector = '#total_price';
+        const freightSelector = '#freight';
+        const imageSelector = '#window_picture';
 
-        title = $(titleSelector).text().trim();
-        price = $(priceSelector).text().trim();
+        const title = $(titleSelector).text().trim();
+        const price = $(priceSelector).text().trim();
+        const freight = $(freightSelector).text().trim();
+        const image = $(imageSelector).attr('src') ? $(imageSelector).attr('src').trim() : '';
 
-        return { title, price };
+        return { title, price, freight, image };
 
     } catch (error) {
         console.error('Error when scraping:', error);
