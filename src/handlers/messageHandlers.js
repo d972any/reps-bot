@@ -1,6 +1,7 @@
 const { createEmbed } = require('../embeds/embed');
 const { urlRegex } = require('../regex/webs');
 const getPageData = require('../scraping/getPageData');
+const { emojis } = require('../data/variables.json');
 
 module.exports = async (message) => {
     if (message.author.bot) return;
@@ -14,11 +15,11 @@ module.exports = async (message) => {
 
         let emoji;
         if (url.includes('taobao.com')) {
-            emoji = '<:taobao:1271782520916148316>';
+            emoji = emojis.taobao;
         } else if (url.includes('weidian.com')) {
-            emoji = '<:weidian:1271782497163804837>';
+            emoji = emojis.weidian;
         } else if (url.includes('1688.com')) {
-            emoji = '<:1688:1271782513919918091>';
+            emoji = emojis['1688'];
         } else {
             emoji = '';
         }

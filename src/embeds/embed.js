@@ -16,7 +16,6 @@ module.exports = {
             .addFields(
                 { name: 'Price', value: price ? "¥" + price : 'Not available', inline: true },
                 { name: 'Freight', value: freight ? "¥" + freight : 'Not available', inline: true },
-                { name: 'Freight', value: freight ? "¥" + freight : 'Not available', inline: true },
             )
             .setImage(image)
             .setFooter({ text: 'Reps Bot', iconURL: 'https://www.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600nw-1095249842.jpg' })
