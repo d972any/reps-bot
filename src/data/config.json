@@ -1,3 +1,4 @@
 {
-    "token" : "your-token-here"
+    "token" : "YOUR_BOT_TOKEN",
+    "channelID" : "YOUR_CHANNEL_ID"
 }
