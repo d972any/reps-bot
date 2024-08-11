@@ -1,10 +1,11 @@
+const { channelID } = require('../data/config.json');
 const { createEmbed } = require('../embeds/embed');
 const { urlRegex } = require('../regex/webs');
 const getPageData = require('../scraping/getPageData');
 const { emojis } = require('../data/variables.json');
 
 module.exports = async (message) => {
-    if (message.author.bot) return;
+    if (message.channel.id !== channelID || message.author.bot) return;
 
     const match = message.content.match(urlRegex);
     if (match) {
